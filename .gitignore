@@ -1,2 +1,7 @@
-*.class
 *.log
+*.xml
+/project
+/.idea
+/target
+/.bsp
+build.sbt

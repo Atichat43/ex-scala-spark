@@ -10,7 +10,7 @@ object HelloWorld {
 
     val sc = new SparkContext("local[*]", "HelloWorld")
 
-    val lines = sc.textFile("data/ml-100k/u.data")
+    val lines = sc.textFile("dev-data/u.data")
     val numLines = lines.count()
 
     println("Hello world! The u.data file has " + numLines + " lines.")

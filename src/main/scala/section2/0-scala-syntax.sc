@@ -10,7 +10,7 @@ val bigNumber: Long = 123456789
 val smallNumber: Byte = 127
 println(s"Test: $hello $four")
 
-(1 > 2) & (1<2)
+(1 > 2) & (1 < 2)
 1 == 0 || truth
 
 // FLOW CONTROL
@@ -24,16 +24,29 @@ if (false) "if" else "else"
 }
 
 var x = 0
-do { println(x); x+=1 } while (x <= 5)
-while (x > 0) { println(x); x -= 1; }
+
+do {
+  println(x);
+  x += 1
+} while (x <= 5)
+
+while (x > 0) {
+  println(x);
+  x -= 1;
+}
+
 for (x <- 1 to 4) println(x)
 
 // FUNCTIONS
 /////////////////////////////////////////////////////////////////
 // format def <function name>(parameter name: type...) : return type = { }
 // functional programming will return for each expressions
-def uppercase(str: String) : String = {str.toUpperCase()}
-def transformStr(str: String, func: String => String): String = {func(str)}
+def uppercase(str: String): String = {
+  str.toUpperCase()
+}
+def transformStr(str: String, func: String => String): String = {
+  func(str)
+}
 
 transformStr("foo", uppercase)
 transformStr("foo", str => str.toUpperCase())
@@ -43,23 +56,24 @@ transformStr("foo", str => str.toUpperCase())
 // tuples (immutable lists)
 // refer to the individual fields with a ONE-BASED index
 val tuples = ("A", 2, true)
-println("Tuples ONE-BASED Index: ",tuples._2, tuples)
+println("Tuples ONE-BASED Index: ", tuples._2, tuples)
 
 // lists
 // like a tuple, but more functionality with a ZERO-BASED index
 // *must be of same type*
 val lst = List(1, 2, 3, 4)
-val mapLst = lst.map((i: Int) => { i + 10})
+val mapLst = lst.map((i: Int) => i + 10)
 val filterLst = lst.filter((x: Int) => x < 3)
-val reduceLst = lst.reduce( (x: Int, y: Int) => x + y)
+val reduceLst = lst.reduce((x: Int, y: Int) => x + y)
 
-println("List ZERO-BASED Index: ",lst(1), lst.head, lst.tail)
+println("List ZERO-BASED Index: ", lst(1), lst.head, lst.tail)
 println("reduceLst (sum): ", reduceLst)
-for (i <- lst) {println(i)}
-for (i <- mapLst) {println(i)}
-for (i <- filterLst) {println(i)}
 
-lst ++ List(5,6)
+for (i <- lst) println(i)
+for (i <- mapLst) println(i)
+for (i <- filterLst) println(i)
+
+lst ++ List(5, 6)
 lst.contains(3)
 lst.max
 lst.sum
